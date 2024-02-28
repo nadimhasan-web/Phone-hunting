@@ -1,35 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phone hunting API</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>       
-</head>
-<body class="bg-gray-400">
-    <header>
-
-    </header>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-400">
+    <header></header>
     <main class="mx-4 md:mx-6 lg:mx-14">
-        <!-- phone search -->
-        <section class="pt-4">
-            <div class="p-4 bg-white rounded-xl flex gap-4">
-                <input id="search_input" type="text" placeholder="Search..." class="input input-bordered w-full max-w-xs" />
-                <button onclick="searchhandle()" id="search_btn" class="btn btn-accent">Search</button>
-            </div>
-        </section>
-        <!-- phone card -->
-        <section class="py-5">
-            <div id="phone_container" class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-                
-            </div>
-        </section>
-    </main>
-    <footer>
+      <!-- phone search -->
+      <section class="pt-4">
+        <div class="p-4 bg-white rounded-xl flex gap-4">
+          <input
+            id="search_input"
+            type="text"
+            placeholder="Search..."
+            class="input input-bordered w-full max-w-xs"
+          />
+          <button
+            onclick="searchhandle()"
+            id="search_btn"
+            class="btn btn-accent"
+          >
+            Search
+          </button>
+        </div>
+      </section>
+      <!-- phone card -->
+      <section class="py-5">
+        <!-- loader -->
+        <div id="loader" class="text-center my-10 hidden">
+          <span class="loading loading-dots text-white loading-lg"></span>
+        </div>
 
-    </footer>
+        <div
+          id="phone_container"
+          class="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+        ></div>
+
+        <!-- show all btn -->
+        <div id="show_all" class="hidden mt-4 text-center">
+          <button class="btn btn-accent">Show all</button>
+        </div>
+      </section>
+      <!-- show details modal -->
+      <section>
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn hidden" onclick="show_details_modal.showModal()">open modal</button>
+        <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+          <div class="modal-box">
+            <h3 id="modal_phone_name" class="font-bold text-2xl"></h3>
+            <div id="modal_details">
+
+            </div>
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </section>
+    </main>
+    <footer></footer>
 
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
+
+
